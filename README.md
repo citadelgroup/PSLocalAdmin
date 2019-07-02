@@ -39,7 +39,11 @@ The client machine script can then create the local admin account or reset the p
 
 #### Windows
 
-* This must be run on an Active Directory Domain Controller
+1. Copy the [CheckLocalAdmin-Bootstrap](https://github.com/citadelgroup/PSLocalAdmin/tree/master/LocalScript/Windows/CheckLocalAdmin-Bootstrap.ps1) script to your PC
+2. Edit the 4 variables at the top of the file
+3. Deploy the script to every machine you want to manage and run
+
+The bootstrap script will create relevant directories, copy the actual script from the repo top run, and schedule the script to run at logon.
 
 ## Versions
 
