@@ -18,7 +18,7 @@
     String containing the APIKey for connecting to the Azure Function
 
 .PARAMETER ResetPeriod
-    Int32 containing the number of days before a password shoudl be changed
+    Int32 containing the number of days before a password should be changed
 
 .EXAMPLE
     CheckLocalAdmin.ps1 -Name "breakglassadmin" -FunctionEndpoint "https://exampleapp.azurewebsites.net/api/HttpTrigger" -APIKey "key" 
