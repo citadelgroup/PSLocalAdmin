@@ -42,7 +42,7 @@ param(
     [Int32] $ResetPeriod = 30
 )
 
-$user = Get-LocalUser -Name $Name -ErrorAction $SilentlyContinue
+$user = Get-LocalUser -Name $Name -ErrorAction SilentlyContinue
 
 if($user) {
     if($user.PasswordLastSet -and ($user.PasswordLastSet).AddDays($ResetPeriod) -lt (Get-Date)) {
@@ -69,7 +69,7 @@ if($CreateUser -or $ChangePassword) {
 
     # Trigger Azure Function
     try {
-        $response = Invoke-RestMethod -Method Post -Uri $uri -Headers $headers -Body $body -ErrorAction Stop
+        $response = Invoke-RestMethod -Method Post -Uri $FunctionEndpoint -Headers $headers -Body $body -ErrorAction Stop
     }
     catch {
         Write-Error "Error calling Azure Function. StatusCode: $($_.Exception.Response.StatusCode.value__). StatusDescription: $($_.Exception.Response.StatusDescription)"
