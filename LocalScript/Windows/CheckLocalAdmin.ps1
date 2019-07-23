@@ -78,10 +78,10 @@ if($CreateUser -or $ChangePassword) {
     $password = ConvertTo-SecureString $response -AsPlainText -Force
 
     if($CreateUser) {
-        New-LocalUser -Name $Name -Password $password -PasswordNeverExpires $true -AccountNeverExpires $true -ErrorAction Stop
+        New-LocalUser -Name $Name -Password $password -PasswordNeverExpires -AccountNeverExpires -ErrorAction Stop
     }
     elseif($ChangePassword) {
-        Set-LocalUser -Name $Name -Password $password -PasswordNeverExpires $true -AccountNeverExpires $true
+        Set-LocalUser -Name $Name -Password $password -PasswordNeverExpires -AccountNeverExpires
     }
 }
 
